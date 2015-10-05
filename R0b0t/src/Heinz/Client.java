@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 
 import Data.Data;
 
-public class Client {
+public class Client { // Handels the Networking Client
 
 	Socket s;
 	String ip;
