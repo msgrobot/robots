@@ -7,11 +7,11 @@ import java.net.UnknownHostException;
 
 import Data.Data;
 
-public class Client { // Handels the Networking Client
+public class Client { // Netzwerkverwaltung
 
-	Socket s;
+	Socket s; //Netzwerk
 	String ip;
-	Heinz heinz;
+	Heinz heinz; //Roboter
 
 	// List<Data> stack;
 
@@ -27,7 +27,7 @@ public class Client { // Handels the Networking Client
 						// ObjectInputStream(s.getInputStream()).readObject());
 
 						heinz.processData((Data) new ObjectInputStream(s
-								.getInputStream()).readObject());//lesen und verarbeiten der Internet Daten.
+								.getInputStream()).readObject());//lesen und verarbeiten der empfangenen Daten.
 
 					}
 				} catch (IOException e) {
