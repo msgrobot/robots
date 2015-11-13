@@ -7,11 +7,11 @@ import Data.Data;
 import Data.M.M;
 
 public class Heinz {
-	Client client;
-
-	boolean inv;
+	Client client; //Netzwerk
 	String ip;
-
+	
+	boolean inv; //Motorrichtung
+	
 	public Heinz(String ip, boolean inverted) {
 		this.ip = ip;
 		client = new Client(ip, 1997, this); //Internetverbindung
@@ -26,14 +26,14 @@ public class Heinz {
 			Motor.A.setSpeed(s1); //Motor ansteuern
 
 			//Rechts
-			int s2 = (int) (m.speedr * (inv ? -1 : +1));
-			Motor.B.setSpeed(s2);
+			int s2 = (int) (m.speedr * (inv ? -1 : +1)); //Motorrichtung
+			Motor.B.setSpeed(s2); //Motor ansteuern
 			
 			if (m.speedl == m.speedr){ //Synchronisierung
 				if(m.speedl == 1337){
-					Sound.playTone(500, 100);
+					Sound.playTone(500, 100); //Ton
 				}else{
-					Motor.A.startSynchronization();
+					Motor.A.startSynchronization(); //Motoren Synchronisierung - gleichzeitiges Starten und Stoppen
 					Motor.B.startSynchronization();
 					Motor.A.synchronizeWith(new RegulatedMotor[]{Motor.B});
 					Motor.B.synchronizeWith(new RegulatedMotor[]{Motor.A});
